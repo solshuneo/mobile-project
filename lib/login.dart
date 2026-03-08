@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:go_router/go_router.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -106,7 +107,7 @@ class _LoginState extends State<Login> {
             child: TextButton(
               onPressed: _keyForm.currentState?.validate() ?? false
                   ? () {
-                      Navigator.pushNamed(ctx, '/productdetail');
+                      ctx.go('productdetail');
                     }
                   : null,
               child: Text("Log in", style: TextStyle(color: Colors.white)),
@@ -119,7 +120,7 @@ class _LoginState extends State<Login> {
               Text("Don't have an account?"),
               TextButton(
                 onPressed: () {
-                  Navigator.pushNamed(ctx, '/signup');
+                  ctx.go('/signup');
                 },
                 child: Text("Sign up", style: TextStyle(color: Colors.green)),
               ),

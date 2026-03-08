@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_stars/flutter_rating_stars.dart';
+import 'package:go_router/go_router.dart';
 
 class ProductDetail extends StatefulWidget {
   const ProductDetail({super.key});
@@ -27,7 +28,7 @@ class _ProductDetailState extends State<ProductDetail> {
                 children: [
                   IconButton(
                     onPressed: () {
-                      Navigator.pushNamed(ctx, '/login');
+                      ctx.go('/login');
                     },
                     icon: Icon(Icons.keyboard_arrow_left),
                   ),
