@@ -1,5 +1,6 @@
 import 'package:first/login.dart';
 import 'package:first/productdetail.dart';
+import 'package:first/profile.dart';
 import 'package:first/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -17,19 +18,22 @@ class App extends StatelessWidget {
 }
 
 final _router = GoRouter(
-  initialLocation: "/login",
+  initialLocation: "/profile",
+
   routes: [
-    GoRoute(
-      path: '/login',
-      builder: (context, state) => Scaffold(body: Login()),
-    ),
-    GoRoute(
-      path: '/signup',
-      builder: (context, state) => Scaffold(body: Signup()),
-    ),
-    GoRoute(
-      path: '/productdetail',
-      builder: (context, state) => Scaffold(body: ProductDetail()),
+    ShellRoute(
+      builder: (ctx, state, child) {
+        return Scaffold(body: child);
+      },
+      routes: [
+        GoRoute(path: '/login', builder: (ctx, state) => Login()),
+        GoRoute(path: '/signup', builder: (ctx, state) => Signup()),
+        GoRoute(
+          path: '/productdetail',
+          builder: (ctx, state) => ProductDetail(),
+        ),
+        GoRoute(path: '/profile', builder: (context, state) => Profile()),
+      ],
     ),
   ],
 );
