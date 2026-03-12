@@ -1,3 +1,4 @@
+import 'package:first/home.dart';
 import 'package:first/login.dart';
 import 'package:first/productdetail.dart';
 import 'package:first/profile.dart';
@@ -18,7 +19,7 @@ class App extends StatelessWidget {
 }
 
 final _router = GoRouter(
-  initialLocation: "/profile",
+  initialLocation: "/home",
 
   routes: [
     ShellRoute(
@@ -33,6 +34,7 @@ final _router = GoRouter(
           builder: (ctx, state) => ProductDetail(),
         ),
         GoRoute(path: '/profile', builder: (context, state) => Profile()),
+        GoRoute(path: '/home', builder: (context, state) => Home()),
       ],
     ),
   ],
